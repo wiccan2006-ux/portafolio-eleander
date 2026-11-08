@@ -162,11 +162,48 @@
     @media(max-width:520px){nav{height:70px}.hero{padding-top:135px}.navlinks{gap:13px;font-size:9px}h1{font-size:65px}.terminal-body{min-height:220px}section{padding:80px 0}}
     @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
+
+    /* Refined luxury details */
+    body:before{background:radial-gradient(ellipse at 12% 4%,rgba(255,255,255,.94),transparent 46%),radial-gradient(ellipse at 88% 48%,rgba(184,154,108,.09),transparent 42%),repeating-linear-gradient(0deg,rgba(111,87,57,.012) 0 1px,transparent 1px 5px),linear-gradient(135deg,#f2ede4,#e9e1d4 65%,#eee8dc)}
+    .hero{overflow:hidden}
+    .hero:after{content:"";position:absolute;right:-130px;top:130px;width:390px;height:390px;border:1px solid rgba(151,119,73,.12);border-radius:50%;box-shadow:0 0 0 18px rgba(151,119,73,.025),0 0 0 38px rgba(151,119,73,.02);pointer-events:none}
+    .hero-grid{position:relative;z-index:1}
+    .eyebrow:before,.eyebrow:after{content:"✦";font-size:9px;color:#a78b5d}
+    .eyebrow{gap:13px}
+    h1{position:relative}
+    h1:after{content:"";display:block;width:82px;height:1px;background:linear-gradient(90deg,#9c8056,transparent);margin-top:29px}
+    .hero-actions{gap:22px}
+    .terminal{padding:26px;outline:1px solid rgba(164,135,91,.18);outline-offset:5px}
+    .terminal:after{content:"✦";position:absolute;top:18px;right:20px;color:#a88c60;font-size:15px}
+    .terminal-body:before{border:1px solid rgba(164,135,91,.55);border-radius:50%;width:190px;height:190px;display:grid;place-items:center;box-shadow:inset 0 0 0 7px #eee6d8,inset 0 0 0 8px rgba(164,135,91,.55),0 0 0 1px rgba(164,135,91,.2);font-size:126px;margin:0 auto 25px}
+    .terminal-body .bar{margin:20px auto}
+    .section-head{position:relative}
+    .section-head:after{content:"✦  ─────────────────  ✦";display:block;color:#ad946d;font:10px var(--sans);letter-spacing:.28em;margin-top:20px;opacity:.8}
+    .card{position:relative}
+    .visual{margin:12px 12px 0;border:1px solid rgba(164,135,91,.28);outline:1px solid rgba(164,135,91,.12);outline-offset:-7px}
+    .visual-label{letter-spacing:.2em}
+    .card-content{padding:29px 31px 32px}
+    .card-meta:before{content:"✦";margin-right:9px;color:#b39a70}
+    .tag{border-color:#d5c6ad;background:linear-gradient(135deg,#f6f1e8,#eee6d9)}
+    .skill{position:relative}
+    .skill:after{content:"";position:absolute;right:13px;top:13px;width:17px;height:17px;border-top:1px solid #b49a72;border-right:1px solid #b49a72;opacity:.7}
+    .skill b{letter-spacing:.19em}
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .process-item{padding:26px 25px 28px;border:1px solid #d7cbb8;background:rgba(248,245,238,.65);position:relative;min-height:190px}
+    .process-number{font:italic 36px Georgia,serif;color:#b49a72;opacity:.9}
+    .process-item h3{font-size:21px;margin:15px 0 9px}
+    .process-item p{font-size:12px;line-height:1.9;color:#817668;margin:0}
+    .process-item:after{content:"";position:absolute;left:25px;bottom:0;width:38px;height:2px;background:#9b7b4e}
+    .closing-note{margin-top:44px;padding:25px 30px;border-top:1px solid #cdbda4;border-bottom:1px solid #cdbda4;text-align:center;color:#776b5b;font:italic 19px Georgia,serif;line-height:1.7}
+    .closing-note span{display:block;font:9px var(--sans);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:#987d54;margin-top:10px}
+    @media(max-width:800px){.process{grid-template-columns:1fr}.process-item{min-height:0}.hero:after{right:-240px;opacity:.55}}
+    @media(max-width:520px){.terminal{padding:18px}.terminal-body:before{width:160px;height:160px;font-size:108px}.visual{margin:8px 8px 0}.card-content{padding:24px}.section-head:after{letter-spacing:.12em}}
+
   </style>
 </head>
 <body>
   
-  <header><nav class="wrap"><a class="brand" href="#inicio">ELEANDER <span>· PORTAFOLIO</span></a><div class="navlinks"><a href="#proyectos">PROYECTOS</a><a href="#sobre-mi">SOBRE MÍ</a></div></nav></header>
+  <header><nav class="wrap"><a class="brand" href="#inicio">ELEANDER <span>· PORTAFOLIO</span></a><div class="navlinks"><a href="#proyectos">PROYECTOS</a><a href="#enfoque">ENFOQUE</a><a href="#sobre-mi">SOBRE MÍ</a></div></nav></header>
   <main>
     <section class="hero" id="inicio" style="border:0">
       <div class="wrap hero-grid">
@@ -185,6 +222,15 @@
         <article class="card reveal"><div class="visual"><span class="visual-label">01 / PLUGIN</span><div class="binary-orbit"></div><div class="nova-mark">N</div></div><div class="card-content"><div class="card-meta">DESARROLLO DE HERRAMIENTA DIGITAL</div><h3>Plugin NOVA</h3><p>Proyecto de desarrollo de un plugin enfocado en ampliar las posibilidades de su entorno de uso. NOVA forma parte de mi trabajo creando soluciones digitales y funcionalidades mediante programación.</p><div class="tags"><span class="tag">PLUGIN</span><span class="tag">SOFTWARE</span><span class="tag">NOVA</span></div><p style="margin-top:18px;color:#64806c;font-size:10px">Descripción técnica pendiente de ampliar con sus funciones específicas.</p></div></article>
         <article class="card reveal"><a href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Casa-Pulpería Ezequiel Zamora"><div class="visual museum-art"><span class="visual-label">02 / WEB EXPERIENCE</span><div class="museum-frame"><small>CASA-PULPERÍA</small><strong>Ezequiel<br>Zamora</strong><span>HISTORIA · CULTURA · MEMORIA</span></div></div></a><div class="card-content"><div class="card-meta">DISEÑO Y DESARROLLO WEB · VERCEL</div><h3>Casa-Pulpería Ezequiel Zamora</h3><p>Sitio web demostrativo para presentar este espacio cultural de Villa de Cura. Incluye recorrido por las salas y el patio, cronología histórica e información para planificar visitas.</p><div class="tags"><span class="tag">DISEÑO UI</span><span class="tag">SITIO WEB</span><span class="tag">VERCEL</span></div><a class="project-link" href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer">ABRIR PROYECTO ↗</a><p style="margin-top:18px;color:#64806c;font-size:10px">Proyecto demostrativo no oficial, elaborado a partir de información pública.</p></div></article>
       </div>
+    </div></section>
+    <section id="enfoque"><div class="wrap">
+      <div class="section-head reveal"><div><div class="kicker">// 02 — METHOD</div><h2>Una forma de trabajar<span style="color:var(--green)">.</span></h2></div><p class="section-note">Cada proyecto merece una solución pensada con cuidado, desde la primera idea hasta su presentación final.</p></div>
+      <div class="process">
+        <article class="process-item reveal"><div class="process-number">I.</div><h3>Escuchar y comprender</h3><p>Conocer la institución, su identidad, sus objetivos y las necesidades de las personas a quienes desea llegar.</p></article>
+        <article class="process-item reveal"><div class="process-number">II.</div><h3>Diseñar la propuesta</h3><p>Definir una estructura, una experiencia visual y las funcionalidades adecuadas para cada proyecto.</p></article>
+        <article class="process-item reveal"><div class="process-number">III.</div><h3>Desarrollar con detalle</h3><p>Convertir la propuesta en una solución digital clara, funcional y coherente con la esencia del espacio.</p></article>
+      </div>
+      <div class="closing-note reveal">“La tecnología también puede preservar la identidad, contar historias y acercar la cultura a las personas.”<span>Principio de trabajo</span></div>
     </div></section>
     <section id="sobre-mi"><div class="wrap about-grid">
       <div class="reveal"><div class="kicker">// 02 — PERFIL</div><h2>Sobre mí<span style="color:var(--green)">.</span></h2><p class="about-copy">Soy Eleander Sanchez, desarrollador web y creador digital. Me especializo en transformar ideas en soluciones digitales funcionales, atractivas y adaptadas a los objetivos de cada cliente. Cada proyecto comienza por comprender sus requisitos, necesidades y prioridades, para definir una propuesta que responda a lo que realmente busca.<br><br>Trabajo combinando desarrollo y diseño para crear sitios web y herramientas digitales con una navegación clara, una identidad visual coherente y funcionalidades pensadas para cada caso. Mi objetivo es ofrecer soluciones personalizadas que aporten valor y faciliten la experiencia de quienes las utilizan.</p></div>
