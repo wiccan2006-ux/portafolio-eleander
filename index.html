@@ -1,64 +1,161 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio profesional de Eleander Sanchez: desarrollo web, proyectos digitales y creación de herramientas.">
-  <meta name="theme-color" content="#020617">
-  <title>Eleander Sanchez | Desarrollador Web</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Portafolio de Eleander Sanchez: desarrollo web, herramientas digitales y proyectos creativos.">
+  <meta name="theme-color" content="#020904">
+  <title>Eleander Sanchez | Digital Architect</title>
   <style>
-    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .grid-bg {
-      background-image: linear-gradient(rgba(148,163,184,.045) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(148,163,184,.045) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 88%);
-    }
-    .glow { box-shadow: 0 0 70px rgba(34,211,238,.10); }
-    .project-card { transition: transform .25s ease, border-color .25s ease, background .25s ease; }
-    .project-card:hover { transform: translateY(-4px); }
-    a:focus-visible { outline: 2px solid #67e8f9; outline-offset: 4px; }
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    :root{--bg:#020904;--panel:rgba(5,19,10,.82);--green:#39ff75;--lime:#b7ff5e;--mint:#8affbd;--muted:#8aa394;--line:rgba(75,255,132,.17);--mono:'IBM Plex Mono',monospace;--sans:'Space Grotesk',sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:#e8fff0;font-family:var(--sans);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% -15%,rgba(26,255,101,.13),transparent 48%),radial-gradient(ellipse at 100% 70%,rgba(38,160,78,.08),transparent 38%),#020904}
+    #matrix{position:fixed;inset:0;width:100%;height:100%;z-index:-1;opacity:.18;pointer-events:none}
+    .noise{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(90,255,140,.035) 4px)}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible{outline:2px solid var(--green);outline-offset:5px}
+    .wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+    header{position:fixed;inset:0 0 auto;z-index:20;border-bottom:1px solid var(--line);background:rgba(2,9,4,.78);backdrop-filter:blur(18px)}
+    nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font:700 15px var(--mono);letter-spacing:.12em;color:var(--green);text-shadow:0 0 18px #39ff7566}
+    .brand span{color:#eaffef}
+    .navlinks{display:flex;gap:30px;font:11px var(--mono);color:#a3b9aa}
+    .navlinks a{transition:color .2s}.navlinks a:hover{color:var(--green)}
+    .hero{min-height:720px;display:flex;align-items:center;padding:150px 0 110px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:40px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(57,255,117,.25);background:rgba(57,255,117,.055);padding:9px 13px;border-radius:3px;color:var(--mint);font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+    .pulse{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 13px var(--green);animation:pulse 1.8s infinite}
+    h1{font-size:clamp(58px,9vw,108px);line-height:.94;letter-spacing:-.075em;margin:30px 0 24px;font-weight:600}
+    h1 .outline{color:transparent;-webkit-text-stroke:1px var(--green);text-shadow:0 0 35px #39ff7522}
+    .hero p{max-width:600px;color:#9bb2a2;font-size:17px;line-height:1.8}
+    .hero-actions{display:flex;align-items:center;gap:18px;margin-top:34px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:12px;padding:14px 18px;background:var(--green);color:#031008;font:600 11px var(--mono);letter-spacing:.06em;border:1px solid var(--green);transition:.25s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
+    .btn:hover{background:var(--lime);box-shadow:0 0 30px #39ff7544;transform:translateY(-2px)}
+    .subtle{font:10px var(--mono);color:#6e8b78;letter-spacing:.1em}
+    .terminal{border:1px solid rgba(57,255,117,.24);background:linear-gradient(145deg,rgba(8,29,15,.92),rgba(2,10,5,.92));box-shadow:0 0 60px #39ff7510,inset 0 0 35px #39ff7508;transform:perspective(900px) rotateY(-7deg);animation:float 7s ease-in-out infinite}
+    .terminal-top{height:39px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#6f927a;font:9px var(--mono)}
+    .dots{display:flex;gap:5px}.dots i{width:6px;height:6px;border-radius:50%;background:#326342}
+    .terminal-body{padding:24px 20px 28px;font:11px/2 var(--mono);color:#76b88a;min-height:260px}
+    .terminal-body .bright{color:var(--green)}.terminal-body .dim{color:#476c52}
+    .terminal-body .bar{height:5px;background:#102b18;margin:5px 0 12px;overflow:hidden}.terminal-body .bar i{display:block;height:100%;width:78%;background:var(--green);box-shadow:0 0 10px var(--green);animation:load 2s ease-out both}
+    .cursor{display:inline-block;width:7px;height:13px;background:var(--green);vertical-align:middle;animation:blink 1s steps(2) infinite}
+    section{padding:100px 0;border-top:1px solid rgba(75,255,132,.12)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:42px}
+    .kicker{font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+    h2{font-size:clamp(34px,5vw,48px);letter-spacing:-.055em;margin:12px 0 0;color:#f0fff3}
+    .section-note{max-width:300px;font:11px/1.8 var(--mono);color:#718b79}
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .card{border:1px solid rgba(57,255,117,.19);background:linear-gradient(150deg,rgba(7,24,12,.92),rgba(3,12,6,.88));position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+    .card:hover{transform:translateY(-7px);border-color:rgba(57,255,117,.55);box-shadow:0 18px 55px #0008,0 0 28px #39ff7510}
+    .card:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:var(--green);transform:scaleY(0);transform-origin:bottom;transition:transform .35s}
+    .card:hover:before{transform:scaleY(1)}
+    .visual{height:230px;display:grid;place-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at center,#0d3218,#06130a 65%)}
+    .visual:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 5px,#39ff7508 6px)}
+    .visual-label{position:absolute;left:17px;top:16px;z-index:2;color:#8ab99a;font:9px var(--mono);letter-spacing:.12em}
+    .nova-mark{font:700 78px var(--mono);color:var(--green);text-shadow:0 0 12px #39ff75,0 0 55px #39ff7566;position:relative;z-index:1;animation:flicker 5s infinite}
+    .binary-orbit{position:absolute;width:190px;height:190px;border:1px solid #39ff7530;border-radius:50%;animation:spin 20s linear infinite}
+    .binary-orbit:before,.binary-orbit:after{content:"01001010 10110100";position:absolute;color:#6aff8b88;font:9px var(--mono);white-space:nowrap;letter-spacing:4px}
+    .binary-orbit:before{top:18px;left:-20px}.binary-orbit:after{bottom:18px;right:-20px}
+    .museum-art{background:radial-gradient(ellipse at center,#302719,#100e08 75%)}
+    .museum-frame{width:72%;height:72%;border:1px solid #c7a56a55;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;z-index:1;box-shadow:inset 0 0 35px #d7a95b10}
+    .museum-frame small{font:9px var(--mono);letter-spacing:.3em;color:#c7a56a}.museum-frame strong{font:clamp(25px,4vw,39px) Georgia,serif;color:#f1d8a5;font-weight:400;margin:14px 0}.museum-frame span{font:8px var(--mono);letter-spacing:.18em;color:#b29b70}
+    .card-content{padding:28px}
+    .card-meta{font:9px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+    h3{font-size:23px;letter-spacing:-.035em;margin:12px 0;color:#f0fff3}
+    .card-content p{font-size:13px;line-height:1.85;color:#91a899;margin:0}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+    .tag{padding:6px 9px;border:1px solid #24432d;color:#9ab7a1;font:9px var(--mono)}
+    .project-link{display:inline-flex;margin-top:22px;color:var(--green);font:10px var(--mono);letter-spacing:.08em}
+    .project-link:hover{color:var(--lime)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+    .about-copy{font-size:15px;line-height:2;color:#9bb2a2;max-width:580px}
+    .skills{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .skill{border:1px solid var(--line);background:#07150b;padding:19px;transition:.25s}
+    .skill:hover{border-color:#39ff7566;background:#0a1e10}
+    .skill b{font:10px var(--mono);color:var(--green)}
+    .skill h4{margin:13px 0 5px;font-size:13px;color:#eaffef}
+    .skill p{margin:0;color:#77917f;font-size:11px;line-height:1.6}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:#698271;font:10px var(--mono)}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @keyframes pulse{50%{opacity:.35;box-shadow:0 0 3px var(--green)}}
+    @keyframes blink{50%{opacity:0}}
+    @keyframes float{0%,100%{transform:perspective(900px) rotateY(-7deg) translateY(0)}50%{transform:perspective(900px) rotateY(-7deg) translateY(-10px)}}
+    @keyframes load{from{width:0}to{width:78%}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes flicker{0%,96%,100%{opacity:1}97%{opacity:.65}98%{opacity:.9}}
+    @media(max-width:800px){.hero-grid{grid-template-columns:1fr}.terminal{max-width:480px;transform:none;animation:none}.projects{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:35px}.hero{min-height:auto;padding-top:145px}.section-head{align-items:start;flex-direction:column}}
+    @media(max-width:520px){.wrap{width:min(100% - 32px,1120px)}nav{height:65px}.navlinks{gap:15px;font-size:9px}.hero{padding-bottom:75px}h1{font-size:62px}.hero p{font-size:15px}.terminal-body{font-size:10px}.card-content{padding:22px}section{padding:75px 0}.visual{height:200px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
-<body class="bg-slate-950 text-slate-300 selection:bg-cyan-300 selection:text-slate-950">
-  <div class="fixed inset-0 pointer-events-none grid-bg"></div>
-  <header class="fixed top-0 z-50 w-full border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Navegación principal">
-      <a href="#inicio" class="font-mono text-sm font-bold tracking-widest text-white">ES<span class="text-cyan-400">.</span></a>
-      <div class="flex items-center gap-6 text-xs font-medium text-slate-400">
-        <a href="#proyectos" class="transition hover:text-cyan-300">Proyectos</a>
-        <a href="#sobre-mi" class="transition hover:text-cyan-300">Sobre mí</a>
-      </div>
-    </nav>
-  </header>
-  <main id="inicio" class="relative">
-    <section class="mx-auto max-w-6xl px-6 pb-24 pt-36 sm:pt-44">
-      <div class="max-w-4xl">
-        <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-3 py-1.5 text-[11px] font-medium tracking-wide text-cyan-300"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>DESARROLLO WEB · CREACIÓN DIGITAL</div>
-        <h1 class="text-5xl font-semibold leading-[1.08] tracking-tight text-white sm:text-7xl">Eleander<br><span class="text-slate-500">Sanchez.</span></h1>
-        <p class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-400 sm:text-xl">Desarrollo experiencias digitales que combinan funcionalidad, claridad y una identidad visual cuidada.</p>
-        <div class="mt-10 flex flex-wrap items-center gap-4"><a href="#proyectos" class="rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Explorar proyectos <span aria-hidden="true">↘</span></a><span class="font-mono text-xs text-slate-500">PORTAFOLIO · 2026</span></div>
-      </div>
-      <div class="pointer-events-none absolute right-[-8rem] top-32 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-[110px]"></div>
-    </section>
-    <section id="proyectos" class="border-t border-white/5">
-      <div class="mx-auto max-w-6xl px-6 py-20">
-        <div class="mb-12 flex flex-wrap items-end justify-between gap-4"><div><p class="font-mono text-[11px] uppercase tracking-[.25em] text-cyan-400">Trabajo seleccionado</p><h2 class="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Proyectos destacados<span class="text-cyan-400">.</span></h2></div><p class="max-w-xs text-sm leading-relaxed text-slate-500">Una selección de desarrollos y herramientas digitales.</p></div>
-        <div class="grid gap-6 lg:grid-cols-2">
-          <article class="project-card overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/55 hover:border-cyan-400/40">
-            <div class="relative flex h-64 items-center justify-center overflow-hidden border-b border-slate-800 bg-[#080f20]"><div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 50% 50%, rgba(34,211,238,.20), transparent 48%), linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px); background-size: auto, 28px 28px, 28px 28px;"></div><div class="relative text-center"><div class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl border border-cyan-300/30 bg-cyan-300/10 font-mono text-2xl font-bold text-cyan-300 glow">N</div><p class="font-mono text-xs tracking-[.35em] text-slate-400">N O V A</p><p class="mt-2 text-[10px] uppercase tracking-widest text-slate-600">Plugin · Proyecto de software</p></div><span class="absolute left-5 top-5 rounded-full border border-slate-700 bg-slate-950/70 px-3 py-1 font-mono text-[10px] text-cyan-300">01 / PLUGIN</span></div>
-            <div class="p-7 sm:p-8"><p class="font-mono text-[10px] uppercase tracking-[.2em] text-cyan-400">Desarrollo de herramienta digital</p><h3 class="mt-3 text-2xl font-semibold text-white">Plugin NOVA</h3><p class="mt-4 text-sm leading-7 text-slate-400">Proyecto de desarrollo de un plugin enfocado en ampliar las posibilidades de su entorno de uso. NOVA forma parte de mi trabajo creando soluciones digitales y funcionalidades mediante programación.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 font-mono text-[10px] text-slate-300">Plugin</span><span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 font-mono text-[10px] text-slate-300">Desarrollo de software</span><span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 font-mono text-[10px] text-slate-300">NOVA</span></div><p class="mt-6 border-t border-slate-800 pt-5 text-xs leading-relaxed text-slate-500">Proyecto en portafolio. La descripción técnica se ampliará con sus funciones y plataforma específicas.</p></div>
-          </article>
-          <article class="project-card overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/55 hover:border-cyan-400/40">
-            <a href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative block h-64 overflow-hidden border-b border-slate-800 bg-[#17130e]" aria-label="Abrir sitio web de Casa-Pulpería Ezequiel Zamora"><div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,rgba(180,117,55,.28),transparent_65%)]"></div><div class="absolute inset-x-8 top-8 bottom-0 rounded-t-xl border border-amber-200/20 bg-[#211b14] p-4 shadow-2xl transition duration-300 group-hover:scale-[1.025]"><div class="flex items-center justify-between border-b border-amber-100/10 pb-3"><span class="font-serif text-[10px] tracking-widest text-amber-100/80">CASA-PULPERÍA</span><span class="text-[9px] text-amber-100/40">VILLA DE CURA · ARAGUA</span></div><div class="mt-7 text-center"><p class="font-serif text-[9px] uppercase tracking-[.3em] text-amber-200/60">Museo & espacio cultural</p><p class="mt-3 font-serif text-2xl text-amber-50 sm:text-3xl">Ezequiel<br>Zamora</p><div class="mx-auto mt-4 h-px w-12 bg-amber-300/40"></div><p class="mt-3 text-[9px] tracking-widest text-amber-100/50">HISTORIA · RECORRIDO · CULTURA</p></div></div><span class="absolute left-5 top-5 rounded-full border border-amber-100/20 bg-black/40 px-3 py-1 font-mono text-[10px] text-amber-100">02 / SITIO WEB</span><span class="absolute bottom-5 right-5 rounded-full bg-amber-100 px-3 py-1.5 text-[10px] font-semibold text-[#211b14]">Visitar sitio ↗</span></a>
-            <div class="p-7 sm:p-8"><p class="font-mono text-[10px] uppercase tracking-[.2em] text-cyan-400">Diseño y desarrollo web · Vercel</p><h3 class="mt-3 text-2xl font-semibold text-white">Casa-Pulpería Ezequiel Zamora</h3><p class="mt-4 text-sm leading-7 text-slate-400">Sitio web demostrativo para presentar este espacio cultural de Villa de Cura. Incluye una página de inicio, recorrido por las salas y el patio, cronología histórica y una sección con información para planificar visitas.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 font-mono text-[10px] text-slate-300">Diseño de interfaces</span><span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 font-mono text-[10px] text-slate-300">Sitio multipágina</span><span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 font-mono text-[10px] text-slate-300">Vercel</span></div><a href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200">Ver proyecto en vivo <span aria-hidden="true">↗</span></a><p class="mt-5 border-t border-slate-800 pt-4 text-[11px] leading-relaxed text-slate-500">Proyecto demostrativo no oficial, elaborado a partir de información pública.</p></div>
-          </article>
+<body>
+  <canvas id="matrix" aria-hidden="true"></canvas><div class="noise" aria-hidden="true"></div>
+  <header><nav class="wrap"><a class="brand" href="#inicio">ELEANDER<span>.SYS</span></a><div class="navlinks"><a href="#proyectos">[ PROYECTOS ]</a><a href="#sobre-mi">[ SOBRE MÍ ]</a></div></nav></header>
+  <main>
+    <section class="hero" id="inicio" style="border:0">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><i class="pulse"></i> SISTEMA EN LÍNEA · DESARROLLADOR WEB</div>
+          <h1>Eleander<br><span class="outline">Sanchez.</span></h1>
+          <p>Transformo ideas en experiencias digitales. Desarrollo sitios web, herramientas y proyectos donde el código se encuentra con el diseño.</p>
+          <div class="hero-actions"><a class="btn" href="#proyectos">EXPLORAR PROYECTOS <span>↘</span></a><span class="subtle">PORTAFOLIO DIGITAL // 2026</span></div>
         </div>
+        <div class="terminal reveal" aria-label="Panel decorativo de terminal"><div class="terminal-top"><span>root@eleander:~</span><div class="dots"><i></i><i></i><i></i></div><span>TERMINAL_01</span></div><div class="terminal-body"><div><span class="bright">eleander@web</span>:~$ initialize_portfolio</div><div class="dim">Loading creative modules...</div><div class="bar"><i></i></div><div><span class="bright">[OK]</span> interface.module</div><div><span class="bright">[OK]</span> development.core</div><div><span class="bright">[OK]</span> visual.engine</div><br><div>01000101 01101100 01100101</div><div>01100001 01101110 01100100 01100101 01110010</div><br><div><span class="bright">System ready.</span> <span class="cursor"></span></div></div></div>
       </div>
     </section>
-    <section id="sobre-mi" class="border-t border-white/5 bg-slate-900/25"><div class="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.1fr_.9fr]"><div><p class="font-mono text-[11px] uppercase tracking-[.25em] text-cyan-400">Perfil</p><h2 class="mt-3 text-3xl font-semibold tracking-tight text-white">Sobre mí<span class="text-cyan-400">.</span></h2><p class="mt-6 max-w-xl text-sm leading-8 text-slate-400">Soy Eleander Sanchez, desarrollador web y creador digital. Me interesa transformar ideas en productos digitales claros, funcionales y visualmente coherentes. Disfruto trabajar tanto en la estructura y lógica de un proyecto como en los detalles de su presentación.</p><p class="mt-4 max-w-xl text-sm leading-8 text-slate-400">Mi enfoque está en seguir aprendiendo, experimentar con nuevas herramientas y construir proyectos que resuelvan necesidades concretas.</p></div><div><p class="font-mono text-[11px] uppercase tracking-[.25em] text-cyan-400">Áreas de trabajo</p><div class="mt-6 grid gap-3 sm:grid-cols-2"><div class="rounded-xl border border-slate-800 bg-slate-900/70 p-5"><span class="font-mono text-xs text-cyan-300">01</span><h3 class="mt-3 text-sm font-semibold text-white">Desarrollo web</h3><p class="mt-2 text-xs leading-6 text-slate-500">Creación de sitios y experiencias digitales.</p></div><div class="rounded-xl border border-slate-800 bg-slate-900/70 p-5"><span class="font-mono text-xs text-cyan-300">02</span><h3 class="mt-3 text-sm font-semibold text-white">Diseño de interfaces</h3><p class="mt-2 text-xs leading-6 text-slate-500">Jerarquía visual, navegación y presentación.</p></div><div class="rounded-xl border border-slate-800 bg-slate-900/70 p-5"><span class="font-mono text-xs text-cyan-300">03</span><h3 class="mt-3 text-sm font-semibold text-white">Herramientas digitales</h3><p class="mt-2 text-xs leading-6 text-slate-500">Desarrollo de plugins y funcionalidades.</p></div><div class="rounded-xl border border-slate-800 bg-slate-900/70 p-5"><span class="font-mono text-xs text-cyan-300">04</span><h3 class="mt-3 text-sm font-semibold text-white">Creación digital</h3><p class="mt-2 text-xs leading-6 text-slate-500">Ideas convertidas en proyectos digitales.</p></div></div></div></div></section>
+    <section id="proyectos"><div class="wrap">
+      <div class="section-head reveal"><div><div class="kicker">// 01 — WORKS</div><h2>Proyectos<span style="color:var(--green)">.</span></h2></div><p class="section-note">Una selección de desarrollos, ideas y experimentos digitales.</p></div>
+      <div class="projects">
+        <article class="card reveal"><div class="visual"><span class="visual-label">01 / PLUGIN</span><div class="binary-orbit"></div><div class="nova-mark">N</div></div><div class="card-content"><div class="card-meta">DESARROLLO DE HERRAMIENTA DIGITAL</div><h3>Plugin NOVA</h3><p>Proyecto de desarrollo de un plugin enfocado en ampliar las posibilidades de su entorno de uso. NOVA forma parte de mi trabajo creando soluciones digitales y funcionalidades mediante programación.</p><div class="tags"><span class="tag">PLUGIN</span><span class="tag">SOFTWARE</span><span class="tag">NOVA</span></div><p style="margin-top:18px;color:#64806c;font-size:10px">Descripción técnica pendiente de ampliar con sus funciones específicas.</p></div></article>
+        <article class="card reveal"><a href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Casa-Pulpería Ezequiel Zamora"><div class="visual museum-art"><span class="visual-label">02 / WEB EXPERIENCE</span><div class="museum-frame"><small>CASA-PULPERÍA</small><strong>Ezequiel<br>Zamora</strong><span>HISTORIA · CULTURA · MEMORIA</span></div></div></a><div class="card-content"><div class="card-meta">DISEÑO Y DESARROLLO WEB · VERCEL</div><h3>Casa-Pulpería Ezequiel Zamora</h3><p>Sitio web demostrativo para presentar este espacio cultural de Villa de Cura. Incluye recorrido por las salas y el patio, cronología histórica e información para planificar visitas.</p><div class="tags"><span class="tag">DISEÑO UI</span><span class="tag">SITIO WEB</span><span class="tag">VERCEL</span></div><a class="project-link" href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer">ABRIR PROYECTO ↗</a><p style="margin-top:18px;color:#64806c;font-size:10px">Proyecto demostrativo no oficial, elaborado a partir de información pública.</p></div></article>
+      </div>
+    </div></section>
+    <section id="sobre-mi"><div class="wrap about-grid">
+      <div class="reveal"><div class="kicker">// 02 — PROFILE</div><h2>Sobre mí<span style="color:var(--green)">.</span></h2><p class="about-copy">Soy Eleander Sanchez, desarrollador web y creador digital. Me interesa transformar ideas en productos digitales claros, funcionales y visualmente coherentes. Disfruto trabajar tanto en la estructura y lógica de un proyecto como en los detalles de su presentación.<br><br>Mi enfoque está en seguir aprendiendo, experimentar con nuevas herramientas y construir proyectos que resuelvan necesidades concretas.</p></div>
+      <div class="reveal"><div class="kicker">// CAPABILITIES</div><div class="skills" style="margin-top:23px"><div class="skill"><b>01 / WEB</b><h4>Desarrollo web</h4><p>Sitios y experiencias digitales.</p></div><div class="skill"><b>02 / UI</b><h4>Diseño de interfaces</h4><p>Jerarquía visual y navegación.</p></div><div class="skill"><b>03 / DEV</b><h4>Herramientas digitales</h4><p>Plugins y funcionalidades.</p></div><div class="skill"><b>04 / ART</b><h4>Creación digital</h4><p>Ideas convertidas en proyectos.</p></div></div></div>
+    </div></section>
   </main>
-  <footer class="border-t border-white/5 px-6 py-8"><div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left"><span class="font-mono text-xs text-slate-500">ELEANDER SANCHEZ <span class="text-cyan-400">/</span> PORTAFOLIO</span><span class="text-xs text-slate-600">© 2026 · Hecho con intención.</span></div></footer>
+  <footer><div class="wrap footer-inner"><span>ELEANDER.SYS // PORTFOLIO</span><span>01000101 01001110 01000100 <span style="color:var(--green)">© 2026</span></span></div></footer>
+  <script>
+    (() => {
+      const canvas = document.getElementById('matrix');
+      const ctx = canvas.getContext('2d');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let width, height, columns, drops, fontSize = 14, frame;
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth; height = window.innerHeight;
+        canvas.width = width * dpr; canvas.height = height * dpr;
+        canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        columns = Math.ceil(width / fontSize);
+        drops = Array.from({length:columns}, () => Math.random() * -height / fontSize);
+      };
+      const draw = () => {
+        ctx.fillStyle = 'rgba(2,9,4,0.075)'; ctx.fillRect(0,0,width,height);
+        ctx.font = fontSize + 'px IBM Plex Mono, monospace';
+        for(let i=0;i<drops.length;i++){
+          const digit = Math.random() > .5 ? '1' : '0';
+          const x = i * fontSize, y = drops[i] * fontSize;
+          ctx.fillStyle = Math.random() > .975 ? '#c5ffd4' : '#39ff75';
+          ctx.fillText(digit,x,y);
+          if(y > height && Math.random() > .978) drops[i] = Math.random() * -20;
+          drops[i] += .42 + Math.random() * .45;
+        }
+        frame = requestAnimationFrame(draw);
+      };
+      resize();
+      if(!reduced) draw();
+      else {ctx.fillStyle='#39ff75';ctx.font='14px monospace';for(let i=0;i<80;i++)ctx.fillText(i%2?'1':'0',Math.random()*width,Math.random()*height)}
+      window.addEventListener('resize',resize,{passive:true});
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    })();
+  </script>
 </body>
 </html>
