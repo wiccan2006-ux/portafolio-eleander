@@ -91,69 +91,112 @@
     @media(max-width:800px){.hero-grid{grid-template-columns:1fr}.terminal{max-width:480px;transform:none;animation:none}.projects{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:35px}.hero{min-height:auto;padding-top:145px}.section-head{align-items:start;flex-direction:column}}
     @media(max-width:520px){.wrap{width:min(100% - 32px,1120px)}nav{height:65px}.navlinks{gap:15px;font-size:9px}.hero{padding-bottom:75px}h1{font-size:62px}.hero p{font-size:15px}.terminal-body{font-size:10px}.card-content{padding:22px}section{padding:75px 0}.visual{height:200px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+    /* Classic editorial redesign */
+    :root{--bg:#eee8dc;--panel:#f7f3eb;--green:#8b6d43;--lime:#b99a69;--mint:#765d45;--muted:#82786a;--line:rgba(111,87,57,.22);--mono:'IBM Plex Mono',monospace;--sans:'Space Grotesk',sans-serif}
+    html{scroll-padding-top:100px}
+    body{background:#eee8dc;color:#39352f;font-family:var(--sans)}
+    body:before{background:radial-gradient(ellipse at 15% 0%,rgba(255,255,255,.9),transparent 48%),linear-gradient(135deg,#f2ede4,#e9e1d4 65%,#eee8dc);z-index:-1}
+    #matrix,.noise{display:none}
+    header{background:rgba(238,232,220,.94);border-bottom:1px solid rgba(112,91,63,.24);backdrop-filter:blur(14px)}
+    nav{height:84px}
+    .brand{font:600 13px var(--sans);letter-spacing:.2em;color:#765d45;text-shadow:none}
+    .brand span{color:#a4875e}
+    .navlinks{font:10px var(--sans);letter-spacing:.13em;color:#776d60}
+    .navlinks a:hover{color:#8b6d43}
+    .hero{min-height:700px;padding:165px 0 115px}
+    .hero-grid{grid-template-columns:1.2fr .8fr;gap:65px}
+    .eyebrow{border:0;border-bottom:1px solid #b9a98f;background:transparent;padding:0 0 12px;border-radius:0;color:#8b6d43;font:10px var(--sans);letter-spacing:.2em}
+    .pulse{background:#9b7b4e;box-shadow:none;animation:none}
+    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(66px,8vw,104px);font-weight:400;letter-spacing:-.065em;line-height:.94;color:#3e3932}
+    h1 .outline{color:#8b6d43;-webkit-text-stroke:0;text-shadow:none;font-style:italic}
+    .hero p{font-size:16px;line-height:1.95;color:#746b60;max-width:570px}
+    .btn{background:#74434a;color:#f7f1e7;border:1px solid #74434a;clip-path:none;padding:15px 21px;font:500 10px var(--sans);letter-spacing:.13em}
+    .btn:hover{background:#5d353b;box-shadow:0 8px 24px #58353b22;transform:translateY(-2px)}
+    .subtle{color:#918574;font:10px var(--sans);letter-spacing:.14em}
+    .terminal{transform:none;animation:none;background:linear-gradient(145deg,#f8f4ec,#e5dccd);border:1px solid #cbbda6;box-shadow:0 22px 55px rgba(67,52,35,.10);padding:22px;position:relative}
+    .terminal:before{content:"";position:absolute;inset:10px;border:1px solid rgba(151,119,73,.24);pointer-events:none}
+    .terminal-top{height:auto;border:0;padding:10px 12px 20px;color:#8b7658;font:9px var(--sans);letter-spacing:.18em}
+    .dots{display:none}
+    .terminal-body{min-height:260px;padding:28px 22px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#796b59;font:10px/2 var(--sans);position:relative}
+    .terminal-body:before{content:"E";font:italic 150px/1 Georgia,serif;color:#a68b63;opacity:.9;text-shadow:2px 3px 0 #fff8;display:block;margin-bottom:14px}
+    .terminal-body .bright{color:#74434a}.terminal-body .dim{color:#968873}
+    .terminal-body .bar{width:70%;height:1px;background:#c5b69e;margin:18px auto}
+    .terminal-body .bar i{width:42%;background:#a58a61;box-shadow:none}
+    .cursor{display:none}
+    section{padding:110px 0;border-top:1px solid rgba(112,91,63,.17)}
+    .section-head{margin-bottom:48px}
+    .kicker{font:10px var(--sans);letter-spacing:.22em;color:#96784e}
+    h2{font:400 clamp(40px,5vw,53px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.035em;color:#3e3932}
+    .section-note{font:11px/1.9 var(--sans);color:#887d6e}
+    .projects{gap:26px}
+    .card{background:#f7f3eb;border:1px solid #d7cbb8;box-shadow:0 10px 30px rgba(66,51,34,.045);transition:transform .35s,border-color .35s,box-shadow .35s}
+    .card:hover{transform:translateY(-5px);border-color:#b49a72;box-shadow:0 18px 38px rgba(66,51,34,.10)}
+    .card:before{background:#9b7b4e}
+    .visual{background:linear-gradient(135deg,#e5dccd,#f1ece3 60%,#ddd0bd);border-bottom:1px solid #d7cbb8}
+    .visual:after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)}
+    .visual-label{color:#8a7556;font:9px var(--sans);letter-spacing:.17em}
+    .nova-mark{font:italic 100px Georgia,serif;color:#8a6e49;text-shadow:none;animation:none}
+    .binary-orbit{width:190px;height:190px;border:1px solid #b49a7266;animation:none}
+    .binary-orbit:before,.binary-orbit:after{content:"✦  ✧  ✦";color:#a58a61;font:13px Georgia,serif;letter-spacing:8px}
+    .museum-art{background:linear-gradient(135deg,#e4d9c7,#f2ece1 60%,#d9c8ae)}
+    .museum-frame{border:1px solid #a88b5f;box-shadow:inset 0 0 0 5px #e8dece,inset 0 0 0 6px #bba27b}
+    .museum-frame small{color:#92754c}.museum-frame strong{color:#5c4139}.museum-frame span{color:#887252}
+    .card-content{padding:30px}
+    .card-meta{font:9px var(--sans);letter-spacing:.17em;color:#94764d}
+    h3{font:400 26px Georgia,'Times New Roman',serif;letter-spacing:-.02em;color:#413a32}
+    .card-content p{color:#766d61;font-size:13px;line-height:1.95}
+    .tag{border:1px solid #d7cbb8;color:#86775f;background:#f2ede4;font:9px var(--sans);letter-spacing:.08em}
+    .project-link{color:#74434a;font:10px var(--sans);letter-spacing:.12em}
+    .project-link:hover{color:#9a6d4f}
+    .about-grid{gap:80px}
+    .about-copy{font-size:15px;line-height:2.05;color:#746b60}
+    .skill{border:1px solid #d7cbb8;background:rgba(248,245,238,.8);padding:21px}
+    .skill:hover{border-color:#b49a72;background:#faf7f0}
+    .skill b{font:10px var(--sans);letter-spacing:.14em;color:#94764d}
+    .skill h4{font:400 17px Georgia,serif;color:#4a4035}
+    .skill p{color:#85796a;font-size:11px;line-height:1.8}
+    footer{border-top:1px solid rgba(112,91,63,.2);padding:32px 0;color:#887d6e;font:10px var(--sans);letter-spacing:.12em}
+    .reveal{transform:translateY(18px)}
+    @media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:42px}.terminal{max-width:480px}.about-grid{gap:38px}}
+    @media(max-width:520px){nav{height:70px}.hero{padding-top:135px}.navlinks{gap:13px;font-size:9px}h1{font-size:65px}.terminal-body{min-height:220px}section{padding:80px 0}}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
   </style>
 </head>
 <body>
-  <canvas id="matrix" aria-hidden="true"></canvas><div class="noise" aria-hidden="true"></div>
-  <header><nav class="wrap"><a class="brand" href="#inicio">ELEANDER<span>.SYS</span></a><div class="navlinks"><a href="#proyectos">[ PROYECTOS ]</a><a href="#sobre-mi">[ SOBRE MÍ ]</a></div></nav></header>
+  
+  <header><nav class="wrap"><a class="brand" href="#inicio">ELEANDER <span>· PORTAFOLIO</span></a><div class="navlinks"><a href="#proyectos">PROYECTOS</a><a href="#sobre-mi">SOBRE MÍ</a></div></nav></header>
   <main>
     <section class="hero" id="inicio" style="border:0">
       <div class="wrap hero-grid">
         <div class="reveal">
-          <div class="eyebrow"><i class="pulse"></i> SISTEMA EN LÍNEA · DESARROLLADOR WEB</div>
+          <div class="eyebrow"><i class="pulse"></i> DISEÑO Y DESARROLLO DE SOLUCIONES DIGITALES</div>
           <h1>Eleander<br><span class="outline">Sanchez.</span></h1>
           <p>Transformo ideas en experiencias digitales. Desarrollo sitios web, herramientas y proyectos donde el código se encuentra con el diseño.</p>
-          <div class="hero-actions"><a class="btn" href="#proyectos">EXPLORAR PROYECTOS <span>↘</span></a><span class="subtle">PORTAFOLIO DIGITAL // 2026</span></div>
+          <div class="hero-actions"><a class="btn" href="#proyectos">EXPLORAR PROYECTOS <span>↘</span></a><span class="subtle">PROYECTOS SELECCIONADOS · 2026</span></div>
         </div>
-        <div class="terminal reveal" aria-label="Panel decorativo de terminal"><div class="terminal-top"><span>root@eleander:~</span><div class="dots"><i></i><i></i><i></i></div><span>TERMINAL_01</span></div><div class="terminal-body"><div><span class="bright">eleander@web</span>:~$ initialize_portfolio</div><div class="dim">Loading creative modules...</div><div class="bar"><i></i></div><div><span class="bright">[OK]</span> interface.module</div><div><span class="bright">[OK]</span> development.core</div><div><span class="bright">[OK]</span> visual.engine</div><br><div>01000101 01101100 01100101</div><div>01100001 01101110 01100100 01100101 01110010</div><br><div><span class="bright">System ready.</span> <span class="cursor"></span></div></div></div>
+        <div class="terminal reveal" aria-label="Panel decorativo de terminal"><div class="terminal-top"><span>ESTUDIO INDEPENDIENTE</span><span>DISEÑO · TECNOLOGÍA · CULTURA</span></div><div class="terminal-body"><div class="bright">ELEANDER SANCHEZ</div><div class="dim">Soluciones digitales con intención y carácter.</div><div class="bar"><i></i></div><div>Diseño cuidado. Desarrollo funcional.</div><div>Experiencias creadas para cada espacio.</div></div></div>
       </div>
     </section>
     <section id="proyectos"><div class="wrap">
-      <div class="section-head reveal"><div><div class="kicker">// 01 — WORKS</div><h2>Proyectos<span style="color:var(--green)">.</span></h2></div><p class="section-note">Una selección de desarrollos, ideas y experimentos digitales.</p></div>
+      <div class="section-head reveal"><div><div class="kicker">// 01 — PROYECTOS</div><h2>Proyectos<span style="color:var(--green)">.</span></h2></div><p class="section-note">Una selección de proyectos digitales concebidos para comunicar, organizar y dar valor a cada espacio.</p></div>
       <div class="projects">
         <article class="card reveal"><div class="visual"><span class="visual-label">01 / PLUGIN</span><div class="binary-orbit"></div><div class="nova-mark">N</div></div><div class="card-content"><div class="card-meta">DESARROLLO DE HERRAMIENTA DIGITAL</div><h3>Plugin NOVA</h3><p>Proyecto de desarrollo de un plugin enfocado en ampliar las posibilidades de su entorno de uso. NOVA forma parte de mi trabajo creando soluciones digitales y funcionalidades mediante programación.</p><div class="tags"><span class="tag">PLUGIN</span><span class="tag">SOFTWARE</span><span class="tag">NOVA</span></div><p style="margin-top:18px;color:#64806c;font-size:10px">Descripción técnica pendiente de ampliar con sus funciones específicas.</p></div></article>
         <article class="card reveal"><a href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Casa-Pulpería Ezequiel Zamora"><div class="visual museum-art"><span class="visual-label">02 / WEB EXPERIENCE</span><div class="museum-frame"><small>CASA-PULPERÍA</small><strong>Ezequiel<br>Zamora</strong><span>HISTORIA · CULTURA · MEMORIA</span></div></div></a><div class="card-content"><div class="card-meta">DISEÑO Y DESARROLLO WEB · VERCEL</div><h3>Casa-Pulpería Ezequiel Zamora</h3><p>Sitio web demostrativo para presentar este espacio cultural de Villa de Cura. Incluye recorrido por las salas y el patio, cronología histórica e información para planificar visitas.</p><div class="tags"><span class="tag">DISEÑO UI</span><span class="tag">SITIO WEB</span><span class="tag">VERCEL</span></div><a class="project-link" href="https://casa-pulperia-museo.vercel.app/" target="_blank" rel="noopener noreferrer">ABRIR PROYECTO ↗</a><p style="margin-top:18px;color:#64806c;font-size:10px">Proyecto demostrativo no oficial, elaborado a partir de información pública.</p></div></article>
       </div>
     </div></section>
     <section id="sobre-mi"><div class="wrap about-grid">
-      <div class="reveal"><div class="kicker">// 02 — PROFILE</div><h2>Sobre mí<span style="color:var(--green)">.</span></h2><p class="about-copy">Soy Eleander Sanchez, desarrollador web y creador digital. Me especializo en transformar ideas en soluciones digitales funcionales, atractivas y adaptadas a los objetivos de cada cliente. Cada proyecto comienza por comprender sus requisitos, necesidades y prioridades, para definir una propuesta que responda a lo que realmente busca.<br><br>Trabajo combinando desarrollo y diseño para crear sitios web y herramientas digitales con una navegación clara, una identidad visual coherente y funcionalidades pensadas para cada caso. Mi objetivo es ofrecer soluciones personalizadas que aporten valor y faciliten la experiencia de quienes las utilizan.</p></div>
-      <div class="reveal"><div class="kicker">// CAPABILITIES</div><div class="skills" style="margin-top:23px"><div class="skill"><b>01 / WEB</b><h4>Desarrollo web</h4><p>Sitios y experiencias digitales.</p></div><div class="skill"><b>02 / UI</b><h4>Diseño de interfaces</h4><p>Jerarquía visual y navegación.</p></div><div class="skill"><b>03 / DEV</b><h4>Herramientas digitales</h4><p>Plugins y funcionalidades.</p></div><div class="skill"><b>04 / ART</b><h4>Creación digital</h4><p>Ideas convertidas en proyectos.</p></div></div></div>
+      <div class="reveal"><div class="kicker">// 02 — PERFIL</div><h2>Sobre mí<span style="color:var(--green)">.</span></h2><p class="about-copy">Soy Eleander Sanchez, desarrollador web y creador digital. Me especializo en transformar ideas en soluciones digitales funcionales, atractivas y adaptadas a los objetivos de cada cliente. Cada proyecto comienza por comprender sus requisitos, necesidades y prioridades, para definir una propuesta que responda a lo que realmente busca.<br><br>Trabajo combinando desarrollo y diseño para crear sitios web y herramientas digitales con una navegación clara, una identidad visual coherente y funcionalidades pensadas para cada caso. Mi objetivo es ofrecer soluciones personalizadas que aporten valor y faciliten la experiencia de quienes las utilizan.</p></div>
+      <div class="reveal"><div class="kicker">// ÁREAS DE TRABAJO</div><div class="skills" style="margin-top:23px"><div class="skill"><b>01 / WEB</b><h4>Desarrollo web</h4><p>Sitios y experiencias digitales.</p></div><div class="skill"><b>02 / UI</b><h4>Diseño de interfaces</h4><p>Jerarquía visual y navegación.</p></div><div class="skill"><b>03 / DEV</b><h4>Herramientas digitales</h4><p>Plugins y funcionalidades.</p></div><div class="skill"><b>04 / ART</b><h4>Creación digital</h4><p>Ideas convertidas en proyectos.</p></div></div></div>
     </div></section>
   </main>
-  <footer><div class="wrap footer-inner"><span>ELEANDER.SYS // PORTFOLIO</span><span>01000101 01001110 01000100 <span style="color:var(--green)">© 2026</span></span></div></footer>
+  <footer><div class="wrap footer-inner"><span>ELEANDER SANCHEZ · PORTAFOLIO</span><span>DISEÑO Y DESARROLLO WEB <span style="color:var(--green)">© 2026</span></span></div></footer>
   <script>
     (() => {
-      const canvas = document.getElementById('matrix');
-      const ctx = canvas.getContext('2d');
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let width, height, columns, drops, fontSize = 14, frame;
-      const resize = () => {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = window.innerWidth; height = window.innerHeight;
-        canvas.width = width * dpr; canvas.height = height * dpr;
-        canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        columns = Math.ceil(width / fontSize);
-        drops = Array.from({length:columns}, () => Math.random() * -height / fontSize);
-      };
-      const draw = () => {
-        ctx.fillStyle = 'rgba(2,9,4,0.075)'; ctx.fillRect(0,0,width,height);
-        ctx.font = fontSize + 'px IBM Plex Mono, monospace';
-        for(let i=0;i<drops.length;i++){
-          const digit = Math.random() > .5 ? '1' : '0';
-          const x = i * fontSize, y = drops[i] * fontSize;
-          ctx.fillStyle = Math.random() > .975 ? '#c5ffd4' : '#39ff75';
-          ctx.fillText(digit,x,y);
-          if(y > height && Math.random() > .978) drops[i] = Math.random() * -20;
-          drops[i] += .42 + Math.random() * .45;
-        }
-        frame = requestAnimationFrame(draw);
-      };
-      resize();
-      if(!reduced) draw();
-      else {ctx.fillStyle='#39ff75';ctx.font='14px monospace';for(let i=0;i<80;i++)ctx.fillText(i%2?'1':'0',Math.random()*width,Math.random()*height)}
-      window.addEventListener('resize',resize,{passive:true});
-      const observer = new IntersectionObserver(entries => entries.forEach(entry => {if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
+      }),{threshold:.12});
       document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
     })();
   </script>
